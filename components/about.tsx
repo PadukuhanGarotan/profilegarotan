@@ -7,9 +7,9 @@ export default function About() {
 
   const stats = [
     { label: "Penduduk", value: "497", icon: "👥" },
-    { label: "Luas Dukuh", value: "12.5 km²", icon: "📍" },
+    { label: "Luas Dusun", value: "12.5 km²", icon: "📍" },
     { label: "Berdiri Sejak", value: "1850", icon: "📅" },
-    { label: "Kepala Dukuh", value: "Bpk. Warsito", icon: "👔" },
+    { label: "Kepala Dusun", value: "Bpk. Warsito", icon: "👔" },
   ]
 
   return (
@@ -44,12 +44,12 @@ export default function About() {
 
           <div className="space-y-6 flex flex-col justify-center">
             <p className="text-lg text-muted-foreground leading-relaxed">
-              Dukuh Garotan berlokasi di Kalurahan Bendung, Kapanewon Semin, Gunung Kidul, Yogyakarta, dengan kekayaan
+              Dusun Garotan berlokasi di Kalurahan Bendung, Kapanewon Semin, Gunung Kidul, Yogyakarta, dengan kekayaan
               budaya dan tradisi lokal yang masih dijaga hingga saat ini. Masyarakat kami berkomitmen untuk melestarikan
               warisan budaya Indonesia.
             </p>
             <p className="text-lg text-muted-foreground leading-relaxed">
-              Dukuh Garotan terkenal dengan pertanian, peternakan, dan kehangatan gotong royong antar sesama warga
+              Dusun Garotan terkenal dengan pertanian, peternakan, dan kehangatan gotong royong antar sesama warga
               masyarakat.
             </p>
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-4">
