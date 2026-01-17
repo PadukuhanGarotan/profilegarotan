@@ -21,7 +21,7 @@ export default function Hero() {
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
               </span>
-              <span className="text-sm font-medium text-foreground">Dukuh Garotan</span>
+              <span className="text-sm font-medium text-foreground">Dusun Garotan</span>
             </div>
 
             <div className="space-y-4">
@@ -29,7 +29,7 @@ export default function Hero() {
                 Selamat Datang
               </h1>
               <p className="text-lg sm:text-xl text-muted-foreground leading-relaxed max-w-xl">
-                Dukuh Garotan adalah dukuh yang indah dengan keindahan alam dan kekayaan budaya lokal yang masih dijaga
+                Dusun Garotan adalah dusun yang indah dengan keindahan alam dan kekayaan budaya lokal yang masih dijaga
                 hingga saat ini.
               </p>
             </div>
@@ -57,7 +57,7 @@ export default function Hero() {
                 rel="noopener noreferrer"
                 className="group inline-flex items-center justify-center px-8 py-4 rounded-2xl border-2 border-primary text-primary font-semibold hover:bg-primary hover:text-primary-foreground transition-all duration-300"
               >
-                Sejarah Garotan
+                Sejarah Dusun Garotan
                 <svg
                   className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform"
                   fill="none"
