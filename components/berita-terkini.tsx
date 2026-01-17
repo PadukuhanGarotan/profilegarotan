@@ -49,10 +49,10 @@ export default function BeritaTerkini() {
               <span className="text-sm font-medium text-primary">Informasi Terbaru</span>
             </div>
             <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground mb-6 tracking-tight">
-              Berita Terkini Dukuh Garotan
+              Berita Terkini Dusun Garotan
             </h2>
             <p className="text-lg sm:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-              Update terbaru seputar kegiatan dan perkembangan di Dukuh Garotan
+              Update terbaru seputar kegiatan dan perkembangan di Dusun Garotan
             </p>
           </div>
 
