@@ -43,14 +43,14 @@ export default function Contact() {
           <div className="bg-white rounded-xl p-8 border border-border">
             <div className="text-3xl mb-4">📍</div>
             <h3 className="text-lg font-bold text-foreground mb-2">Alamat</h3>
-            <p className="text-muted-foreground">Dukuh Garotan, Kalurahan Bendung, Kapanewon Semin, Gunung Kidul</p>
+            <p className="text-muted-foreground">Dusun Garotan, Kalurahan Bendung, Kapanewon Semin, Gunung Kidul</p>
           </div>
 
           <div className="bg-white rounded-xl p-8 border border-border">
             <div className="text-3xl mb-4">📞</div>
             <h3 className="text-lg font-bold text-foreground mb-2">Telepon</h3>
             <p className="text-muted-foreground">
-              +62 
+              +62 00 000 000 000
             </p>
           </div>
 
