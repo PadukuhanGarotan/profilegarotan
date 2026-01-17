@@ -48,10 +48,10 @@ export default function News({ initialNewsSlug }: NewsProps) {
               <span className="text-sm font-medium text-primary">UMKM Lokal</span>
             </div>
             <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground mb-6 tracking-tight">
-              UMKM Dukuh Garotan
+              UMKM Dusun Garotan
             </h2>
             <p className="text-lg sm:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-              Informasi terbaru seputar kegiatan UMKM di Dukuh Garotan serta lokasi usaha mereka
+              Informasi terbaru seputar kegiatan UMKM di Dusun Garotan serta lokasi usaha mereka
             </p>
           </div>
 
