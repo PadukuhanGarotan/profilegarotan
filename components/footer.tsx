@@ -7,9 +7,9 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
           {/* About */}
           <div>
-            <h3 className="font-bold text-lg mb-4">Dukuh Garotan</h3>
+            <h3 className="font-bold text-lg mb-4">Dusun Garotan</h3>
             <p className="text-sm opacity-90">
-              Portal resmi Dukuh Garotan menyediakan informasi lengkap tentang desa kami.
+              Portal resmi Dusun Garotan menyediakan informasi lengkap tentang desa kami.
             </p>
           </div>
 
@@ -87,7 +87,7 @@ export default function Footer() {
 
         <div className="border-t border-primary-foreground/20 pt-8 mt-8">
           <p className="text-center text-sm opacity-90">
-            &copy; {currentYear} Dukuh Garotan. Semua hak dilindungi. Universitas Duta Bangsa Surakarta
+            &copy; {currentYear} Dusun Garotan. Semua hak dilindungi. Universitas Duta Bangsa Surakarta
           </p>
         </div>
       </div>
