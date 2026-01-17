@@ -72,7 +72,7 @@ export default function Navigation() {
               <span className="text-2xl">🏘️</span>
             </div>
             <div className="hidden sm:block">
-              <h1 className="text-xl font-bold text-foreground tracking-tight">Padukuhann Garotan</h1>
+              <h1 className="text-xl font-bold text-foreground tracking-tight">Padukuhan Garotan</h1>
               <p className="text-xs text-muted-foreground">Kalurahan Bendung, Kapanewon Semin</p>
             </div>
           </div>
