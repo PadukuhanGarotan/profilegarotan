@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react"
 import { ChevronLeft, ChevronRight, MapPin } from "lucide-react"
-import NewsDetailModal from "../components/news-detail-model"
+import NewsDetailModal from "./news-detail-model"
 import { type NewsItem, newsData } from "@/lib/umkm-data"
 
 interface NewsProps {
@@ -55,61 +55,99 @@ export default function News({ initialNewsSlug }: NewsProps) {
             </p>
           </div>
 
-          <div className="hidden md:grid grid-cols-1 md:grid-cols-3 gap-8">
-            {news.map((item, index) => (
-              <article
-                key={index}
-                className="group bg-card rounded-3xl overflow-hidden hover:shadow-2xl transition-all duration-500 border border-border hover:scale-[1.02]"
+          {/* Desktop Carousel */}
+          <div className="hidden md:block">
+            <div className="relative">
+              <div className="overflow-hidden">
+                <div
+                  className="flex transition-transform duration-500 ease-out"
+                  style={{ transform: `translateX(-${currentIndex * 100}%)` }}
+                >
+                  {news.map((item, index) => (
+                    <div key={index} className="w-full flex-shrink-0 px-4">
+                      <article className="bg-card rounded-3xl overflow-hidden border border-border shadow-lg hover:shadow-2xl transition-shadow duration-300 h-full flex flex-col">
+                        <div className="h-64 overflow-hidden bg-muted relative">
+                          <img
+                            src={item.image || "/placeholder.svg?height=300&width=500&query=umkm desa"}
+                            alt={item.title}
+                            className="w-full h-full object-cover hover:scale-110 transition-transform duration-700"
+                          />
+                          <div className="absolute inset-0 bg-gradient-to-t from-primary/30 via-transparent to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300"></div>
+                        </div>
+                        <div className="p-6 sm:p-8 flex flex-col flex-grow">
+                          <p className="text-sm text-primary font-semibold mb-3">{item.date}</p>
+                          <h3 className="text-xl font-bold text-foreground mb-4 line-clamp-2 hover:text-primary transition-colors">
+                            {item.title}
+                          </h3>
+                          <p className="text-muted-foreground text-sm sm:text-base line-clamp-3 leading-relaxed mb-6 flex-grow">
+                            {item.description}
+                          </p>
+                          <div className="flex flex-col gap-3 mt-auto">
+                            <button
+                              onClick={() => openDetail(item)}
+                              className="inline-flex items-center text-primary font-semibold hover:gap-3 gap-2 transition-all cursor-pointer group/btn"
+                            >
+                              Baca Selengkapnya
+                              <svg
+                                className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform"
+                                fill="none"
+                                stroke="currentColor"
+                                viewBox="0 0 24 24"
+                              >
+                                <path
+                                  strokeLinecap="round"
+                                  strokeLinejoin="round"
+                                  strokeWidth={2}
+                                  d="M17 8l4 4m0 0l-4 4m4-4H3"
+                                />
+                              </svg>
+                            </button>
+                            {item.location && (
+                              <button
+                                onClick={() => window.open(item.mapsUrl, "_blank")}
+                                className="inline-flex items-center text-accent font-semibold hover:gap-3 gap-2 transition-all cursor-pointer group/btn"
+                              >
+                                <MapPin className="w-4 h-4" />
+                                Lihat Lokasi
+                              </button>
+                            )}
+                          </div>
+                        </div>
+                      </article>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <button
+                onClick={handlePrevious}
+                className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 bg-primary text-primary-foreground rounded-full p-3 hover:bg-primary/90 hover:scale-110 transition-all shadow-xl z-10"
+                aria-label="Berita sebelumnya"
               >
-                <div className="aspect-video overflow-hidden bg-muted relative">
-                  <img
-                    src={item.image || "/placeholder.svg?height=300&width=500&query=umkm desa"}
-                    alt={item.title}
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                <ChevronLeft size={24} />
+              </button>
+
+              <button
+                onClick={handleNext}
+                className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 bg-primary text-primary-foreground rounded-full p-3 hover:bg-primary/90 hover:scale-110 transition-all shadow-xl z-10"
+                aria-label="Berita selanjutnya"
+              >
+                <ChevronRight size={24} />
+              </button>
+
+              <div className="flex justify-center gap-2 mt-8">
+                {news.map((_, index) => (
+                  <button
+                    key={index}
+                    onClick={() => setCurrentIndex(index)}
+                    className={`h-2 rounded-full transition-all ${
+                      index === currentIndex ? "bg-primary w-8" : "bg-muted-foreground/40 w-2 hover:bg-muted-foreground"
+                    }`}
+                    aria-label={`Lihat berita ${index + 1}`}
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-primary/30 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                </div>
-                <div className="p-6 sm:p-8">
-                  <p className="text-sm text-primary font-semibold mb-3">{item.date}</p>
-                  <h3 className="text-xl font-bold text-foreground mb-4 line-clamp-2 group-hover:text-primary transition-colors">
-                    {item.title}
-                  </h3>
-                  <p className="text-muted-foreground text-sm sm:text-base line-clamp-3 leading-relaxed mb-6">
-                    {item.description}
-                  </p>
-                  <div className="flex flex-col gap-3">
-                    <button
-                      onClick={() => openDetail(item)}
-                      className="inline-flex items-center text-primary font-semibold hover:gap-3 gap-2 transition-all cursor-pointer group/btn"
-                    >
-                      Baca Selengkapnya
-                      <svg
-                        className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M17 8l4 4m0 0l-4 4m4-4H3"
-                        />
-                      </svg>
-                    </button>
-                    {item.location && (
-                      <button
-                        onClick={() => window.open(item.mapsUrl, "_blank")}
-                        className="inline-flex items-center text-accent font-semibold hover:gap-3 gap-2 transition-all cursor-pointer group/btn"
-                      >
-                        <MapPin className="w-4 h-4" />
-                        Lihat Lokasi
-                      </button>
-                    )}
-                  </div>
-                </div>
-              </article>
-            ))}
+                ))}
+              </div>
+            </div>
           </div>
 
           <div className="md:hidden">
@@ -122,7 +160,7 @@ export default function News({ initialNewsSlug }: NewsProps) {
                   {news.map((item, index) => (
                     <div key={index} className="w-full flex-shrink-0 px-2">
                       <article className="bg-card rounded-3xl overflow-hidden border border-border shadow-lg">
-                        <div className="aspect-video overflow-hidden bg-muted">
+                        <div className="h-48 overflow-hidden bg-muted">
                           <img
                             src={item.image || "/placeholder.svg?height=300&width=500&query=umkm desa"}
                             alt={item.title}
